@@ -66,4 +66,22 @@ Route::prefix('/dashboard')->group(function() {
             return view('dashboard.settings.api');
         })->name('api');
     });
+
+    Route::get('/users', function() {
+        return view('dashboard.users');
+    })->name('users');
+
+    Route::prefix('/user')->name('user.')->group(function() {
+        Route::get('/', function() {
+            return view('dashboard.user.profile');
+        })->name('profile');
+
+        Route::get('/{username?}', function() {
+            return view('dashboard.user.detail');
+        })->name('detail')->where('name', '[A-Za-z0-9-_]+');
+
+        Route::get('/edit/{username?}', function() {
+            return view('dashboard.user.edit');
+        })->name('edit')->where('name', '[A-Za-z0-9-_]+');
+    });
 });

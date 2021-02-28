@@ -35,7 +35,7 @@
 </div>
 @endsection
 
-@push('scripts')
+@section('scripts')
 <!-- Select2 -->
 <script src="{{ asset('plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
 <script>
@@ -45,4 +45,4 @@ $(function () {
     });
 });
 </script>
-@endpush
+@endsection

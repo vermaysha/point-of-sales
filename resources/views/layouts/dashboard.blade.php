@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
-  @stack('head')
+  @yield('head')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -139,7 +139,7 @@
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">John Doe</span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="{{ route('user.profile') }}" class="dropdown-item">
             <i class="fas fa-cog mr-2"></i>My Profile
           </a>
           <a href="{{ route('auth.logout') }}" class="dropdown-item">
@@ -194,6 +194,14 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('users') }}" class="nav-link {{ isActive('users') }}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Users Management
               </p>
             </a>
           </li>
@@ -304,10 +312,6 @@
 <!-- ChartJS -->
 <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
 
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('js/demo.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('js/pages/dashboard2.js') }}"></script>
-@stack('scripts')
+@yield('scripts')
 </body>
 </html>
